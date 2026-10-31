@@ -38,10 +38,12 @@ button {
 
 <h3>Find Your Dream Job</h3>
 
-<button>🏛️ Government Jobs</button>
-<button>🏢 NGO Jobs</button>
-<button>🏬 Private Jobs</button>
-<button>📢 Latest Vacancies</button>
+<button onclick="showJobs('Government')">🏛️ Government Jobs</button>
+<button onclick="showJobs('NGO')">🏢 NGO Jobs</button>
+<button onclick="showJobs('Private')">🏬 Private Jobs</button>
+<button onclick="showJobs('All')">📢 Open Jobs</button>
+
+<div id="jobs"></div>
 <button>🔍 Search Jobs</button>
 <button>📤 Post a Vacancy</button>
 <button onclick="alert('Apply for Jobs')">
@@ -56,8 +58,24 @@ button {
 🔔 Telegram Notifications
 </button>
 <script>
+
 Telegram.WebApp.ready();
 Telegram.WebApp.expand();
+
+function showJobs(category) {
+
+  let jobs = document.getElementById("jobs");
+
+  jobs.innerHTML = `
+    <h2>📢 ${category} Jobs</h2>
+    <p>Welcome to Abay Jobs Vacancy!</p>
+    <p>Vacancies will appear here.</p>
+  `;
+
+  jobs.scrollIntoView({behavior:"smooth"});
+
+}
+
 </script>
 
 </body>
